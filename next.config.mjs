@@ -2,7 +2,7 @@
 const nextConfig = {
     output: 'standalone',
     devIndicators: {
-        allowedDevOrigins: ['w3k.tantran.dev'],
+        allowedDevOrigins: ['w3k.tantran.dev', 'qualifai.net', 'www.qualifai.net'],
     },
     async redirects() {
         return [
