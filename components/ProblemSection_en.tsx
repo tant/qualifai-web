@@ -1,96 +1,67 @@
 import React from 'react';
 
+// SVG Icon Components (replace with your actual icon components or library)
+const ClockIcon = () => (
+    <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+);
+
+const ExclamationCircleIcon = () => (
+    <svg className="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+);
+
+const ArchiveBoxXMarkIcon = () => (
+    <svg className="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.03 1.126 0 1.131.094 1.976 1.057 1.976 2.192V7.5M8.25 7.5h7.5M8.25 7.5v9l-1.355 1.355a.75.75 0 01-1.06 0l-1.061-1.06 1.06-1.061a.75.75 0 000-1.06l-2.122-2.122a.75.75 0 00-1.06 0l-1.061 1.06-1.06-1.061a.75.75 0 010-1.06l2.122-2.122a.75.75 0 011.06 0l1.06 1.06 1.06-1.061a.75.75 0 000-1.061l-2.122-2.122-1.355-1.355a.75.75 0 00-1.06 0L3 16.5v-9a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v9a2.25 2.25 0 01-2.25 2.25h-5.25" />
+    </svg>
+);
+
 export default function ProblemSection_en() {
     return (
         <section className="py-20 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-                    Is Your Recruiting Process Working Against You?
-                </h2>
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div className="text-center">
-                        <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg
-                                className="w-8 h-8 text-red-600"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                                />
-                            </svg>
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+                        Tired of the Resume Black Hole?
+                    </h2>
+                    <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+                        Manual screening is slow, biased, and inefficient. You&apos;re losing top talent to faster competitors while your team drowns in a sea of irrelevant applications.
+                    </p>
+                </div>
+                <div className="grid md:grid-cols-3 gap-8">
+                    {/* Problem 1: Time-Consuming */}
+                    <div className="text-center p-6 border border-gray-200 rounded-lg">
+                        <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <ClockIcon />
                         </div>
-                        <h3 className="text-xl font-semibold mb-2">Information Overload</h3>
+                        <h3 className="text-xl font-semibold mb-2">Time-Consuming</h3>
                         <p className="text-gray-600">
-                            Spending 60% of your time on irrelevant resumes?
+                            Spending hours, not minutes, on initial screening.
                         </p>
                     </div>
-                    <div className="text-center">
+
+                    {/* Problem 2: Inaccurate */}
+                    <div className="text-center p-6 border border-gray-200 rounded-lg">
                         <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg
-                                className="w-8 h-8 text-orange-600"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                                />
-                            </svg>
+                            <ExclamationCircleIcon />
                         </div>
-                        <h3 className="text-xl font-semibold mb-2">Expertise Gap</h3>
+                        <h3 className="text-xl font-semibold mb-2">Inaccurate</h3>
                         <p className="text-gray-600">
-                            Feeling unsure when evaluating highly technical skills on a JD?
+                            Overlooking qualified candidates due to human error and unconscious bias.
                         </p>
                     </div>
-                    <div className="text-center">
-                        <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg
-                                className="w-8 h-8 text-yellow-600"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"
-                                />
-                            </svg>
-                        </div>
-                        <h3 className="text-xl font-semibold mb-2">Language Barriers</h3>
-                        <p className="text-gray-600">
-                            Accidentally rejecting top international talent due to language
-                            friction?
-                        </p>
-                    </div>
-                    <div className="text-center">
+
+                    {/* Problem 3: Costly */}
+                    <div className="text-center p-6 border border-gray-200 rounded-lg">
                         <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg
-                                className="w-8 h-8 text-red-600"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                                />
-                            </svg>
+                            <ArchiveBoxXMarkIcon />
                         </div>
-                        <h3 className="text-xl font-semibold mb-2">Costly Mis-hires</h3>
+                        <h3 className="text-xl font-semibold mb-2">Costly</h3>
                         <p className="text-gray-600">
-                            Worried about the high cost of making the wrong hiring decision?
+                            Wasting resources on a process that doesn&apos;t deliver the best results.
                         </p>
                     </div>
                 </div>

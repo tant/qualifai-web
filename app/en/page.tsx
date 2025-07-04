@@ -11,8 +11,8 @@ export default function EnPage() {
   }, [router]);
 
   return (
-    <div style={{ padding: '2rem', textAlign: 'center' }}>
-      <p>Redirecting you to the main page...</p>
+    <div className="flex h-screen items-center justify-center">
+      <p className="text-lg">Redirecting you to the main page...</p>
     </div>
   );
 }

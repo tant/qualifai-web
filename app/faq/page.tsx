@@ -83,9 +83,8 @@ export default function FaqPage() {
                                         <AccordionTrigger className="text-left text-lg font-medium">
                                             {faq.question}
                                         </AccordionTrigger>
-                                        <AccordionContent className="text-base text-gray-600 dark:text-gray-400"
-                                            dangerouslySetInnerHTML={{ __html: faq.answer.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }}
-                                        >
+                                        <AccordionContent className="text-base text-gray-600 dark:text-gray-400">
+                                            <div dangerouslySetInnerHTML={{ __html: faq.answer.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />
                                         </AccordionContent>
                                     </AccordionItem>
                                 ))}
