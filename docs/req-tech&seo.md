@@ -63,3 +63,11 @@
 -   Reduce time-to-hire with AI
 -   Software to rank job candidates
 -   AI tool to generate interview questions
+
+## 3.4. Long-Term & Aspirational Keywords (Future/Agent-focused)
+
+-   AI recruitment agent
+-   Autonomous hiring assistant
+-   Automated candidate sourcing
+-   AI co-pilot for recruiters
+-   Intelligent hiring automation
