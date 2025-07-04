@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 import Hero_en from '@/components/Hero_en';
 import ProblemSection_en from '@/components/ProblemSection_en';
 import FeaturesSection_en from '@/components/FeaturesSection_en';
@@ -51,67 +53,58 @@ export default function Page() {
                     <p className="text-sm text-gray-700 mb-3">
                         We use cookies to enhance your experience, gather analytics, and support
                         marketing efforts.
-                        <a href="/privacy-policy" className="text-blue-600 hover:underline ml-1">
+                        <Link href="/privacy-policy" className="text-blue-600 hover:underline ml-1">
                             Learn more
-                        </a>
+                        </Link>
                     </p>
                     <div className="flex gap-2">
-                        <button
-                            onClick={handleCookieAccept}
-                            className="px-4 py-2 bg-blue-600 text-white text-sm rounded-md hover:bg-blue-700 transition-colors"
-                        >
+                        <Button onClick={handleCookieAccept} size="sm">
                             Accept All
-                        </button>
-                        <button
-                            onClick={handleCookieDecline}
-                            className="px-4 py-2 border border-gray-300 text-gray-700 text-sm rounded-md hover:bg-gray-50 transition-colors"
-                        >
+                        </Button>
+                        <Button onClick={handleCookieDecline} variant="outline" size="sm">
                             Decline
-                        </button>
+                        </Button>
                     </div>
                 </div>
             )}
 
             {/* Sticky Header */}
-            <header className="sticky top-0 bg-white border-b border-gray-200 z-40">
+            <header className="sticky top-0 bg-white/80 backdrop-blur-sm border-b border-gray-200 z-40">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-16">
                         {/* Logo */}
                         <div className="flex-shrink-0">
-                            <Image src="/logo.png" alt="QualifAI Logo" width={120} height={32} />
+                            <Link href="/">
+                                <Image src="/logo.png" alt="QualifAI Logo" width={120} height={32} />
+                            </Link>
                         </div>
 
                         {/* Desktop Navigation */}
-                        <nav className="hidden md:flex space-x-8">
-                            <button
-                                onClick={scrollToFeatures}
-                                className="text-gray-700 hover:text-blue-600 transition-colors"
-                            >
+                        <nav className="hidden md:flex items-center space-x-2">
+                            <Button variant="link" onClick={scrollToFeatures} className="text-gray-700">
                                 Features
-                            </button>
-                            <a
-                                href="/why-us"
-                                className="text-gray-700 hover:text-blue-600 transition-colors"
-                            >
-                                Why Us
-                            </a>
-                            <a
-                                href="/faq"
-                                className="text-gray-700 hover:text-blue-600 transition-colors"
-                            >
-                                FAQ
-                            </a>
+                            </Button>
+                            <Button variant="link" asChild className="text-gray-700">
+                                <Link href="/why-us">Why Us</Link>
+                            </Button>
+                            <Button variant="link" asChild className="text-gray-700">
+                                <Link href="/faq">FAQ</Link>
+                            </Button>
                         </nav>
 
                         {/* CTA Button */}
                         <div className="hidden md:block">
-                            <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium">
-                                Analyze Resumes Free
-                            </button>
+                            <Button>Analyze Resumes Free</Button>
                         </div>
 
                         {/* Mobile menu button */}
-                        <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                        <Button
+                            variant="ghost"
+                            size="icon"
+                            className="md:hidden"
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                            aria-label="Open menu"
+                        >
                             <svg
                                 className="h-6 w-6"
                                 fill="none"
@@ -122,31 +115,33 @@ export default function Page() {
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
                                     strokeWidth={2}
-                                    d="M4 6h16M4 12h16M4 18h16"
+                                    d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
                                 />
                             </svg>
-                        </button>
+                        </Button>
                     </div>
 
                     {/* Mobile Navigation */}
                     {isMenuOpen && (
                         <div className="md:hidden py-4 border-t border-gray-200">
-                            <div className="flex flex-col space-y-4">
-                                <button
-                                    onClick={scrollToFeatures}
-                                    className="text-left text-gray-700 hover:text-blue-600"
+                            <div className="flex flex-col space-y-2">
+                                <Button
+                                    variant="ghost"
+                                    onClick={() => {
+                                        scrollToFeatures();
+                                        setIsMenuOpen(false);
+                                    }}
+                                    className="justify-start"
                                 >
                                     Features
-                                </button>
-                                <a href="/why-us" className="text-gray-700 hover:text-blue-600">
-                                    Why Us
-                                </a>
-                                <a href="/faq" className="text-gray-700 hover:text-blue-600">
-                                    FAQ
-                                </a>
-                                <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium text-left">
-                                    Analyze Resumes Free
-                                </button>
+                                </Button>
+                                <Button variant="ghost" asChild className="justify-start">
+                                    <Link href="/why-us">Why Us</Link>
+                                </Button>
+                                <Button variant="ghost" asChild className="justify-start">
+                                    <Link href="/faq">FAQ</Link>
+                                </Button>
+                                <Button className="w-full">Analyze Resumes Free</Button>
                             </div>
                         </div>
                     )}

@@ -1,13 +1,10 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function WhyUsPage() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-    const scrollToFeatures = () => {
-        document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
-    };
 
     return (
         <div className="min-h-screen bg-white text-gray-900">
@@ -22,21 +19,21 @@ export default function WhyUsPage() {
 
                         {/* Desktop Navigation */}
                         <nav className="hidden md:flex space-x-8">
-                            <a
+                            <Link
                                 href="/"
                                 className="text-gray-700 hover:text-blue-600 transition-colors"
                             >
                                 Home
-                            </a>
-                            <a href="/en/why-us" className="text-blue-600 font-medium">
+                            </Link>
+                            <Link href="/why-us" className="text-blue-600 font-medium">
                                 Why Us
-                            </a>
-                            <a
-                                href="/en/faq"
+                            </Link>
+                            <Link
+                                href="/faq"
                                 className="text-gray-700 hover:text-blue-600 transition-colors"
                             >
                                 FAQ
-                            </a>
+                            </Link>
                         </nav>
 
                         {/* CTA Button */}
@@ -68,15 +65,15 @@ export default function WhyUsPage() {
                     {isMenuOpen && (
                         <div className="md:hidden py-4 border-t border-gray-200">
                             <div className="flex flex-col space-y-4">
-                                <a href="/" className="text-gray-700 hover:text-blue-600">
+                                <Link href="/" className="text-gray-700 hover:text-blue-600">
                                     Home
-                                </a>
-                                <a href="/en/why-us" className="text-blue-600 font-medium">
+                                </Link>
+                                <Link href="/why-us" className="text-blue-600 font-medium">
                                     Why Us
-                                </a>
-                                <a href="/en/faq" className="text-gray-700 hover:text-blue-600">
+                                </Link>
+                                <Link href="/faq" className="text-gray-700 hover:text-blue-600">
                                     FAQ
-                                </a>
+                                </Link>
                                 <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium text-left">
                                     Analyze Resumes Free
                                 </button>
@@ -95,7 +92,7 @@ export default function WhyUsPage() {
                             <span className="text-blue-600">Technology with a Purpose.</span>
                         </h1>
                         <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-                            We believe talent is everywhere, but opportunity isn't. That's why we
+                            We believe talent is everywhere, but opportunity isn&apos;t. That&apos;s why we
                             built QualifAI to bridge the gap between exceptional candidates and the
                             companies that need them.
                         </p>
@@ -155,7 +152,7 @@ export default function WhyUsPage() {
                                 Your AI Co-pilot, Not a Black Box
                             </h3>
                             <p className="text-gray-600">
-                                Every decision is transparent and explainable. You'll always
+                                Every decision is transparent and explainable. You&apos;ll always
                                 understand why a candidate was ranked and what questions to ask
                                 next.
                             </p>
@@ -229,7 +226,7 @@ export default function WhyUsPage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="max-w-4xl mx-auto">
                         <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
-                            We're Building This With You
+                            We&apos;re Building This With You
                         </h2>
                         <div className="bg-blue-50 p-8 rounded-lg">
                             <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -443,19 +440,19 @@ export default function WhyUsPage() {
                             <h3 className="font-semibold mb-4">Product</h3>
                             <ul className="space-y-2 text-gray-400">
                                 <li>
-                                    <a href="/" className="hover:text-white">
+                                    <Link href="/" className="hover:text-white">
                                         Features
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="/en/why-us" className="hover:text-white">
+                                    <Link href="/why-us" className="hover:text-white">
                                         Why Us
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="/en/faq" className="hover:text-white">
+                                    <Link href="/faq" className="hover:text-white">
                                         FAQ
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
@@ -463,14 +460,14 @@ export default function WhyUsPage() {
                             <h3 className="font-semibold mb-4">Company</h3>
                             <ul className="space-y-2 text-gray-400">
                                 <li>
-                                    <a href="/en/about" className="hover:text-white">
+                                    <Link href="/about" className="hover:text-white">
                                         About Us
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="/en/contact" className="hover:text-white">
+                                    <Link href="/contact" className="hover:text-white">
                                         Contact
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
@@ -478,14 +475,14 @@ export default function WhyUsPage() {
                             <h3 className="font-semibold mb-4">Legal</h3>
                             <ul className="space-y-2 text-gray-400">
                                 <li>
-                                    <a href="/en/privacy-policy" className="hover:text-white">
+                                    <Link href="/privacy-policy" className="hover:text-white">
                                         Privacy Policy
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="/en/terms-of-service" className="hover:text-white">
+                                    <Link href="/terms-of-service" className="hover:text-white">
                                         Terms of Service
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </div>

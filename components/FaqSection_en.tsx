@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 interface FaqItemProps {
     question: string;
@@ -41,24 +42,16 @@ interface FaqSectionProps {
 const FaqSection_en: React.FC<FaqSectionProps> = ({ openFaq, toggleFaq }) => {
     const faqs = [
         {
-            question: 'What is QualifAI and how does it work?',
-            answer: 'QualifAI is an AI-powered resume screening and analysis tool designed to help recruiters and hiring managers identify the best candidates quickly. It uses natural language processing and machine learning to understand job requirements and evaluate resumes based on skills, experience, and qualifications, rather than just keywords.',
+            question: 'Why is QualifAI free?',
+            answer: 'QualifAI is committed to being free forever. As an open-source project under the MIT license, we believe in removing cost barriers and fostering a community where everyone can use and contribute to the platform. We are driven by the goal of building the best possible tool for recruiters, together.',
         },
         {
-            question: 'Is QualifAI biased?',
-            answer: 'We have designed QualifAI to significantly reduce unconscious bias in the hiring process. By focusing on objective qualifications and skills, the platform helps ensure that every candidate is evaluated fairly. We are continuously monitoring and improving our algorithms to prevent any form of bias.',
+            question: 'Is my data secure?',
+            answer: 'Absolutely. Data security is our top priority. All uploaded data is encrypted both in transit and at rest. We use industry-standard security protocols to ensure your information is always protected.',
         },
         {
-            question: 'What languages do you support?',
-            answer: 'Currently, QualifAI supports resumes in English, French, Spanish, and German. We are actively working on adding more languages to our platform to support global talent acquisition.',
-        },
-        {
-            question: 'How secure is my data?',
-            answer: 'Data security is our top priority. We use industry-standard encryption for data in transit and at rest. All resume data is processed securely and stored in compliance with GDPR and other major data protection regulations. We never share your data with third parties.',
-        },
-        {
-            question: 'Do you offer a free trial?',
-            answer: "Yes! You can get started with our free plan which allows you to analyze up to 10 resumes per month to see how QualifAI can benefit your hiring process. For higher volumes and more advanced features, you can upgrade to one of our paid plans at any time.",
+            question: "How is this different from my current ATS?",
+            answer: "While traditional ATS systems rely on simple keyword matching, QualifAI uses advanced AI to understand context, skill equivalency, and experience nuances. It doesn\'t just find words; it understands what they mean in a professional context.",
         },
     ];
 
@@ -66,10 +59,7 @@ const FaqSection_en: React.FC<FaqSectionProps> = ({ openFaq, toggleFaq }) => {
         <section className="py-20 bg-white">
             <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold">Frequently Asked Questions</h2>
-                    <p className="mt-4 text-lg text-gray-600">
-                        Have questions? We have answers.
-                    </p>
+                    <h2 className="text-3xl md:text-4xl font-bold">Your Questions, Answered</h2>
                 </div>
                 <div className="space-y-4">
                     {faqs.map((faq, index) => (
@@ -84,10 +74,10 @@ const FaqSection_en: React.FC<FaqSectionProps> = ({ openFaq, toggleFaq }) => {
                 </div>
                 <div className="mt-12 text-center">
                     <p className="text-gray-600">
-                        Still have questions?{' '}
-                        <a href="/en/contact" className="text-blue-600 hover:underline">
-                            Contact Us
-                        </a>
+                        Have more questions?{' '}
+                        <Link href="/faq" className="text-blue-600 hover:underline">
+                            Read our full FAQ
+                        </Link>
                     </p>
                 </div>
             </div>
