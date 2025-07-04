@@ -26,12 +26,12 @@ const Footer_en = () => {
                                 </a>
                             </li>
                             <li>
-                                <a href="/en/why-us" className="text-gray-400 hover:text-white">
+                                <a href="/why-us" className="text-gray-400 hover:text-white">
                                     Why Us
                                 </a>
                             </li>
                             <li>
-                                <a href="/en/pricing" className="text-gray-400 hover:text-white">
+                                <a href="/pricing" className="text-gray-400 hover:text-white">
                                     Pricing
                                 </a>
                             </li>
@@ -43,17 +43,17 @@ const Footer_en = () => {
                         <h3 className="font-semibold uppercase tracking-wider mb-4">Company</h3>
                         <ul className="space-y-2">
                             <li>
-                                <a href="/en/about" className="text-gray-400 hover:text-white">
+                                <a href="/about" className="text-gray-400 hover:text-white">
                                     About Us
                                 </a>
                             </li>
                             <li>
-                                <a href="/en/blog" className="text-gray-400 hover:text-white">
+                                <a href="/blog" className="text-gray-400 hover:text-white">
                                     Blog
                                 </a>
                             </li>
                             <li>
-                                <a href="/en/contact" className="text-gray-400 hover:text-white">
+                                <a href="/contact" className="text-gray-400 hover:text-white">
                                     Contact
                                 </a>
                             </li>
@@ -65,12 +65,12 @@ const Footer_en = () => {
                         <h3 className="font-semibold uppercase tracking-wider mb-4">Legal</h3>
                         <ul className="space-y-2">
                             <li>
-                                <a href="/en/privacy-policy" className="text-gray-400 hover:text-white">
+                                <a href="/privacy-policy" className="text-gray-400 hover:text-white">
                                     Privacy Policy
                                 </a>
                             </li>
                             <li>
-                                <a href="/en/tos" className="text-gray-400 hover:text-white">
+                                <a href="/tos" className="text-gray-400 hover:text-white">
                                     Terms of Service
                                 </a>
                             </li>
