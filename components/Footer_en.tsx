@@ -21,7 +21,7 @@ const Footer_en = () => {
                         <h3 className="font-semibold uppercase tracking-wider mb-4 text-base">Product</h3>
                         <ul className="space-y-2">
                             <li>
-                                <Link href="#features" className="text-[#B0B8C1] hover:text-[#00C853] transition-all duration-200 ease-in-out text-base">
+                                <Link href="/#features" className="text-[#B0B8C1] hover:text-[#00C853] transition-all duration-200 ease-in-out text-base">
                                     Features
                                 </Link>
                             </li>
@@ -70,7 +70,7 @@ const Footer_en = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/tos" className="text-[#B0B8C1] hover:text-[#00C853] transition-all duration-200 ease-in-out text-base">
+                                <Link href="/term-of-service" className="text-[#B0B8C1] hover:text-[#00C853] transition-all duration-200 ease-in-out text-base">
                                     Terms of Service
                                 </Link>
                             </li>

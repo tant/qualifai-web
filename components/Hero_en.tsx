@@ -1,11 +1,8 @@
 import React from 'react';
+import Link from 'next/link';
 import { Button } from './ui/button'; // Assuming button is in components/ui
 
 export default function Hero_en() {
-    const scrollToFeatures = () => {
-        document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
-    };
-
     return (
         <section className="bg-linear-to-br from-blue-50 to-indigo-100 py-20 md:py-28">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,10 +17,12 @@ export default function Hero_en() {
                         matters: building great teams.
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-                        <Button size="lg">Analyze Resumes for Free</Button>
-                        <Button size="lg" variant="secondary" onClick={scrollToFeatures}>
-                            Learn More
-                        </Button>
+                        <Link href="/early-access" passHref legacyBehavior>
+                          <Button size="lg" asChild>Analyze Resumes for Free</Button>
+                        </Link>
+                        <Link href="/early-access" passHref legacyBehavior>
+                          <Button size="lg" variant="secondary" asChild>Learn More</Button>
+                        </Link>
                     </div>
                     <p className="text-sm text-gray-500">
                         Join 200+ recruiters already hiring smarter.

@@ -28,7 +28,9 @@ const Header_en = () => {
                         </Button>
                     </nav>
                     <div className="hidden md:flex">
-                        <Button variant="primary" className="text-base px-5 py-2 shadow-sm rounded-[4px]">Analyze Resumes Free</Button>
+                        <Button variant="primary" asChild className="text-base px-5 py-2 shadow-sm rounded-[4px]">
+                          <Link href="/early-access">Analyze Resumes Free</Link>
+                        </Button>
                     </div>
                     <div className="md:hidden">
                         <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
@@ -53,7 +55,9 @@ const Header_en = () => {
                                     <Button variant="tertiary" asChild className="justify-start text-lg">
                                         <Link href="/faq">FAQ</Link>
                                     </Button>
-                                    <Button className="w-full mt-4">Analyze Resumes Free</Button>
+                                    <Button className="w-full mt-4" asChild>
+                                      <Link href="/early-access">Analyze Resumes Free</Link>
+                                    </Button>
                                 </nav>
                             </SheetContent>
                         </Sheet>

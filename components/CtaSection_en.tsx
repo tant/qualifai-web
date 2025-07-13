@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 const CtaSection_en = () => {
     return (
@@ -11,9 +12,11 @@ const CtaSection_en = () => {
                     Stop wasting time on unqualified applicants. Let QualifAI build your
                     shortlist of top talent in minutes, not weeks.
                 </p>
-                <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors">
+                <Link href="/early-access" passHref legacyBehavior>
+                  <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors">
                     Analyze Resumes Free
-                </button>
+                  </button>
+                </Link>
                 <p className="mt-4 text-sm text-blue-200">No credit card required.</p>
             </div>
         </section>

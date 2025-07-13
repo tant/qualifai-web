@@ -10,9 +10,11 @@ export default function WhyUsFinalCtaSection() {
         <p className="text-xl mb-8 opacity-90">
           Join hundreds of recruiters who are already hiring smarter with QualifAI.
         </p>
-        <button className="bg-[hsl(var(--color-background))] text-[hsl(var(--color-primary))] px-8 py-4 rounded-[var(--radius-lg)] text-lg font-semibold hover:bg-[hsl(var(--color-secondary))] transition-colors focus-visible:outline-2 focus-visible:outline-[hsl(var(--color-ring))]">
-          Analyze Resumes Free
-        </button>
+        <a href="/early-access">
+          <button className="bg-[hsl(var(--color-background))] text-[hsl(var(--color-primary))] px-8 py-4 rounded-[var(--radius-lg)] text-lg font-semibold hover:bg-[hsl(var(--color-secondary))] transition-colors focus-visible:outline-2 focus-visible:outline-[hsl(var(--color-ring))]">
+            Analyze Resumes Free
+          </button>
+        </a>
         <p className="text-sm mt-4 opacity-75">
           No credit card required. Start in under 2 minutes.
         </p>
