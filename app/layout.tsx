@@ -4,6 +4,7 @@ import './global.css';
 import { cn } from '@/lib/utils';
 import Header_en from '@/components/Header_en';
 import Footer_en from '@/components/Footer_en';
+import { GoogleTagManager } from '@next/third-parties/google';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -27,6 +28,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <GoogleTagManager gtmId="GTM-TKM34NF5" />
       <body 
         className={cn(
           'min-h-screen bg-neutral-light font-sans text-neutral-charcoal antialiased',
