@@ -60,30 +60,29 @@ const faqData = {
 
 export default function FaqPage() {
     return (
-        <div className="w-full bg-white dark:bg-black transition-colors duration-200">
-            <div className="container mx-auto max-w-4xl py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+        <div className="min-h-screen bg-[hsl(var(--color-background))] text-[hsl(var(--color-foreground))] font-sans transition-colors duration-200">
+            <div className="container max-w-4xl py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
                 <div className="text-center">
-                    <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
+                    <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-[hsl(var(--color-foreground))] mb-4 leading-[1.2]">
                         Frequently Asked Questions
                     </h1>
-                    <p className="mt-4 text-lg leading-6 text-gray-600 dark:text-gray-400">
+                    <p className="mt-2 text-lg leading-[1.6] text-[hsl(var(--color-muted-foreground))]">
                         Can&apos;t find the answer you&apos;re looking for? Reach out to our team.
                     </p>
                 </div>
-
                 <div className="mt-12">
                     {Object.entries(faqData).map(([category, faqs]) => (
                         <div key={category} className="mb-10">
-                            <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+                            <h2 className="text-2xl font-semibold text-[hsl(var(--color-primary))] mb-4 leading-[1.2]">
                                 {category}
                             </h2>
                             <Accordion type="single" collapsible className="w-full">
                                 {faqs.map((faq, index) => (
-                                    <AccordionItem value={`item-${category}-${index}`} key={index}>
-                                        <AccordionTrigger className="text-left text-lg font-medium">
+                                    <AccordionItem value={`item-${category}-${index}`} key={index} className="border-b border-[hsl(var(--color-border))]">
+                                        <AccordionTrigger className="text-left text-lg font-medium text-[hsl(var(--color-foreground))] focus-visible:outline-2 focus-visible:outline-[hsl(var(--color-ring))]">
                                             {faq.question}
                                         </AccordionTrigger>
-                                        <AccordionContent className="text-base text-gray-600 dark:text-gray-400">
+                                        <AccordionContent className="text-base text-[hsl(var(--color-muted-foreground))]">
                                             <div dangerouslySetInnerHTML={{ __html: faq.answer.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />
                                         </AccordionContent>
                                     </AccordionItem>

@@ -11,8 +11,6 @@ import DesignedForYou_en from '@/components/DesignedForYou_en';
 import CtaSection_en from '@/components/CtaSection_en';
 import TestimonialsSection_en from '@/components/TestimonialsSection_en';
 import FaqSection_en from '@/components/FaqSection_en';
-import Footer_en from '@/components/Footer_en';
-import Header from '@/components/Header'; // Import the new Header component
 
 export default function Page() {
     const [showCookieBanner, setShowCookieBanner] = useState(true);
@@ -52,14 +50,12 @@ export default function Page() {
                         <Button onClick={handleCookieAccept} size="sm">
                             Accept All
                         </Button>
-                        <Button onClick={handleCookieDecline} variant="outline" size="sm">
+                        <Button onClick={handleCookieDecline} variant="secondary" size="sm">
                             Decline
                         </Button>
                     </div>
                 </div>
             )}
-
-            <Header />
 
             {/* Hero Section */}
             <Hero_en />
@@ -84,9 +80,6 @@ export default function Page() {
 
             {/* FAQ Section */}
             <FaqSection_en />
-
-            {/* Footer */}
-            <Footer_en />
         </div>
     );
 }
