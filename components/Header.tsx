@@ -9,18 +9,6 @@ import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/s
 const Header = () => {
     const [isSheetOpen, setIsSheetOpen] = useState(false);
 
-    const scrollToFeatures = () => {
-        // Close sheet on navigation
-        setIsSheetOpen(false); 
-        const featuresSection = document.getElementById('features');
-        if (featuresSection) {
-            featuresSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
-
-    // Function to close the sheet when a link is clicked
-    const closeSheet = () => setIsSheetOpen(false);
-
     return (
         <header className="sticky top-0 z-50 w-full border-b border-[#F6F9FC] bg-white/80 backdrop-blur-xs shadow-[0_1px_2px_0_rgba(16,24,40,0.05)]">
             <div className="container flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -29,8 +17,8 @@ const Header = () => {
                 </Link>
                 <div className="flex items-center gap-x-6">
                     <nav className="hidden md:flex items-center gap-x-2">
-                        <Button variant="tertiary" onClick={scrollToFeatures} className="text-[#0A2540] hover:text-[#00C853] focus-visible:ring-2 focus-visible:ring-[#00C853] transition-all duration-200 ease-in-out text-base px-3 py-2">
-                            Features
+                        <Button variant="tertiary" asChild className="text-[#0A2540] hover:text-[#00C853] focus-visible:ring-2 focus-visible:ring-[#00C853] transition-all duration-200 ease-in-out text-base px-3 py-2">
+                            <Link href="/#features">Features</Link>
                         </Button>
                         <Button variant="tertiary" asChild className="text-[#0A2540] hover:text-[#00C853] focus-visible:ring-2 focus-visible:ring-[#00C853] transition-all duration-200 ease-in-out text-base px-3 py-2">
                             <Link href="/why-us">Why Us</Link>
@@ -56,8 +44,8 @@ const Header = () => {
                                     <span className="sr-only">Mobile Navigation</span>
                                 </SheetTitle>
                                 <nav className="flex flex-col space-y-4 mt-8">
-                                    <Button variant="tertiary" onClick={scrollToFeatures} className="justify-start text-lg">
-                                        Features
+                                    <Button variant="tertiary" asChild className="justify-start text-lg">
+                                        <Link href="/#features">Features</Link>
                                     </Button>
                                     <Button variant="tertiary" asChild className="justify-start text-lg">
                                         <Link href="/why-us">Why Us</Link>
