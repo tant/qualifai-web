@@ -1,0 +1,166 @@
+/*
+ * =================================================================================
+ * global.css for QualifAI
+ * Version: 1.1
+ * Framework: Tailwind CSS v4.0
+ * Description: This file establishes the foundational theme and base styles
+ * for the QualifAI application, based on the official Visual
+ * Design & Branding Guidelines.
+ * =================================================================================
+ */
+
+/*
+ * 1. FONT IMPORT
+ * Imports the Inter font family from Google Fonts.
+ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/*
+ * 2. TAILWIND CSS IMPORT
+ * This single line imports all of Tailwind's base, components, and utilities.
+ */
+@import "tailwindcss";
+
+/*
+ * 3. THEME CONFIGURATION (@theme)
+ * This block replaces the tailwind.config.js file. All custom design tokens
+ * for the application are defined here as CSS Custom Properties.
+ */
+@theme {
+  /*
+   * -----------------------------------------------------------------------------
+   * [Section 2.2] Color Palette
+   * -----------------------------------------------------------------------------
+   * Defines the core brand, semantic, and neutral colors.
+   * These are defined in HSL format to be easily used with Tailwind's
+   * opacity modifiers, but the original HEX is provided for reference.
+   */
+
+  /* Brand Colors */
+  --color-primary-deep-blue: 210 77% 14%; /* #0A2540 */
+  --color-accent-vibrant-green: 145 100% 39%; /* #00C853 */
+
+  /* Semantic Colors */
+  --color-error-red: 0 66% 47%; /* #D32F2F */
+  --color-warning-amber: 45 96% 58%; /* #FBC02D */
+  --color-info-blue: 207 79% 44%; /* #1976D2 */
+
+  /* Neutral Colors */
+  --color-neutral-white: 0 0% 100%; /* #FFFFFF */
+  --color-neutral-light-gray: 210 60% 98%; /* #F6F9FC */
+  --color-neutral-charcoal: 0 0% 20%; /* #333333 */
+  --color-neutral-placeholder: 211 15% 69%; /* #A0AEC0 */
+
+  /*
+   * -----------------------------------------------------------------------------
+   * [Section 2.4] General Style
+   * -----------------------------------------------------------------------------
+   * Defines border radius and box shadows.
+   */
+  --radius-sm: 4px; /* For buttons, inputs */
+  --radius-lg: 8px; /* For cards, containers */
+
+  --shadow-1: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+  --shadow-2: 0 2px 8px 0 rgba(16, 24, 40, 0.10);
+  --shadow-3: 0 4px 24px 0 rgba(16, 24, 40, 0.18);
+
+  /*
+   * -----------------------------------------------------------------------------
+   * Light Mode Theme (Default)
+   * -----------------------------------------------------------------------------
+   * Maps the color palette to semantic theme variables for light mode.
+   */
+  --color-background: var(--color-neutral-white);
+  --color-foreground: var(--color-neutral-charcoal);
+  --color-card: var(--color-neutral-white);
+  --color-card-foreground: var(--color-neutral-charcoal);
+  --color-popover: var(--color-neutral-white);
+  --color-popover-foreground: var(--color-neutral-charcoal);
+  --color-primary: var(--color-primary-deep-blue);
+  --color-primary-foreground: var(--color-neutral-white);
+  --color-secondary: var(--color-neutral-light-gray);
+  --color-secondary-foreground: var(--color-primary-deep-blue);
+  --color-muted: var(--color-neutral-light-gray);
+  --color-muted-foreground: var(--color-neutral-charcoal);
+  --color-accent: var(--color-accent-vibrant-green);
+  --color-accent-foreground: var(--color-neutral-white);
+  --color-destructive: var(--color-error-red);
+  --color-destructive-foreground: var(--color-neutral-white);
+  --color-border: var(--color-neutral-light-gray);
+  --color-input: var(--color-neutral-light-gray);
+  --color-ring: var(--color-accent-vibrant-green);
+
+  /*
+   * -----------------------------------------------------------------------------
+   * [Section 2.7] Animation & Transitions
+   * -----------------------------------------------------------------------------
+   * Defines keyframes for common animations (e.g., accordions).
+   */
+  @keyframes accordion-down {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
+  }
+  @keyframes accordion-up {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+  }
+}
+
+/*
+ * 4. GLOBAL STYLES
+ * Defines base styles for the entire application, applying the theme.
+ */
+html {
+  /* [Section 2.8] Sets base font size to 16px for accessibility */
+  font-size: 16px;
+}
+
+body {
+  /* Applies the core background and text colors from the theme */
+  background-color: hsl(var(--color-background));
+  color: hsl(var(--color-foreground));
+
+  /* [Section 2.1] Sets the primary font family */
+  font-family: 'Inter', sans-serif;
+
+  /* [Section 2.1] Sets the default line-height for body text */
+  line-height: 1.6;
+
+  /* General visual improvements */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* [Section 2.1] Sets the line-height for headings */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+}
+
+/*
+ * -----------------------------------------------------------------------------
+ * [Section 2.11] Dark Mode Theme
+ * -----------------------------------------------------------------------------
+ * Overrides theme variables when the .dark class is applied.
+ * This is placed outside the @theme block as required by Tailwind v4.
+ */
+.dark {
+  --color-background: 210 77% 14%; /* Deep Blue #0A2540 */
+  --color-foreground: 210 60% 98%; /* Light Gray #F6F9FC */
+  --color-card: 213 19% 13%; /* Lighter dark shade #1E2226 */
+  --color-card-foreground: 210 60% 98%; /* Light Gray #F6F9FC */
+  --color-popover: 213 19% 13%;
+  --color-popover-foreground: 210 60% 98%;
+  --color-primary: 210 60% 98%; /* Light Gray becomes primary text */
+  --color-primary-foreground: 210 77% 14%;
+  --color-secondary: 213 19% 13%;
+  --color-secondary-foreground: 210 60% 98%;
+  --color-muted: 213 19% 13%;
+  --color-muted-foreground: 214 17% 75%; /* #B0B8C1 */
+  --color-accent: var(--color-accent-vibrant-green);
+  --color-accent-foreground: var(--color-neutral-charcoal); /* Text on green button */
+  --color-destructive: var(--color-error-red);
+  --color-destructive-foreground: var(--color-neutral-white);
+  --color-border: 255 255% 255% / 0.08; /* semi-transparent white */
+  --color-input: 255 255% 255% / 0.08;
+  --color-ring: var(--color-accent-vibrant-green);
+}
