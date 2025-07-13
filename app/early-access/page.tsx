@@ -5,10 +5,36 @@ import { Globe, Scale, Github } from "lucide-react";
 export default function EarlyAccessPage() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Simple email validation regex
+  const validateEmail = (email: string) =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    if (!validateEmail(email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+    setError("");
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        setError(data.error || "Something went wrong. Please try again later.");
+        return;
+      }
+      setSubmitted(true);
+    } catch (err) {
+      setError("Network error. Please try again later.");
+    }
   };
 
   return (
@@ -28,7 +54,10 @@ export default function EarlyAccessPage() {
             placeholder="Enter your email address"
             className="flex-1 px-4 py-3 rounded-md border border-[hsl(var(--color-primary))] focus:outline-none focus:ring-2 focus:ring-[hsl(var(--color-primary))] text-base"
             value={email}
-            onChange={e => setEmail(e.target.value)}
+            onChange={e => {
+              setEmail(e.target.value);
+              if (error) setError("");
+            }}
             disabled={submitted}
             aria-label="Email address"
           />
@@ -40,6 +69,9 @@ export default function EarlyAccessPage() {
             {submitted ? "Thank You!" : "Get Early Access"}
           </button>
         </form>
+        {error && (
+          <div className="text-red-600 font-medium mb-2">{error}</div>
+        )}
         {submitted && (
           <div className="text-green-600 font-medium mb-2">Thank you for joining! We&apos;ll be in touch soon.</div>
         )}
@@ -112,7 +144,10 @@ export default function EarlyAccessPage() {
             placeholder="Enter your email address"
             className="flex-1 px-4 py-3 rounded-md border border-[hsl(var(--color-primary))] focus:outline-none focus:ring-2 focus:ring-[hsl(var(--color-primary))] text-base"
             value={email}
-            onChange={e => setEmail(e.target.value)}
+            onChange={e => {
+              setEmail(e.target.value);
+              if (error) setError("");
+            }}
             disabled={submitted}
             aria-label="Email address"
           />
@@ -124,6 +159,9 @@ export default function EarlyAccessPage() {
             {submitted ? "Thank You!" : "Join the Revolution"}
           </button>
         </form>
+        {error && (
+          <div className="text-red-200 font-medium">{error}</div>
+        )}
         {submitted && (
           <div className="text-green-100 font-medium">Thank you for joining! We&apos;ll be in touch soon.</div>
         )}
