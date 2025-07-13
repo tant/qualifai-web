@@ -4,7 +4,7 @@ import './global.css';
 import { cn } from '@/lib/utils';
 import Header_en from '@/components/Header_en';
 import Footer_en from '@/components/Footer_en';
-import { GoogleTagManager } from '@next/third-parties/google';
+import { GoogleTagManager, GoogleAnalytics  } from '@next/third-parties/google';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -39,6 +39,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {children}
         <Footer_en />
       </body>
+      <GoogleAnalytics gaId="G-B23C6G8HSD" />
     </html>
   );
 }
