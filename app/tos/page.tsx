@@ -1,13 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import Header from '@/components/Header';
+import Header_en from '@/components/Header_en';
 import Footer_en from '@/components/Footer_en';
 
 export default function TermsOfServicePage() {
     return (
         <div className="min-h-screen bg-white text-gray-900">
-            <Header />
+            <Header_en />
 
             {/* Main Content */}
             <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

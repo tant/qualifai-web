@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './global.css';
 import { cn } from '@/lib/utils';
-import Header from '@/components/Header';
+import Header_en from '@/components/Header_en';
 import Footer_en from '@/components/Footer_en';
 
 const inter = Inter({ 
@@ -33,7 +33,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           inter.variable
         )}
       >
-        <Header />
+        <Header_en />
         {children}
         <Footer_en />
       </body>
