@@ -21,7 +21,7 @@ export default function Hero_en() {
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
                         <Button size="lg">Analyze Resumes for Free</Button>
-                        <Button size="lg" variant="outline" onClick={scrollToFeatures}>
+                        <Button size="lg" variant="secondary" onClick={scrollToFeatures}>
                             Learn More
                         </Button>
                     </div>
