@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
 
-const Header = () => {
+const Header_en = () => {
     const [isSheetOpen, setIsSheetOpen] = useState(false);
 
     return (
@@ -64,4 +64,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default Header_en;
