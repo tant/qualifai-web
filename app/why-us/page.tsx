@@ -13,7 +13,7 @@ export default function WhyUsPage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-16">
                         {/* Logo */}
-                        <div className="flex-shrink-0">
+                        <div className="shrink-0">
                             <div className="text-2xl font-bold text-blue-600">QualifAI</div>
                         </div>
 
@@ -84,7 +84,7 @@ export default function WhyUsPage() {
             </header>
 
             {/* Hero Section */}
-            <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
+            <section className="bg-linear-to-br from-blue-50 to-indigo-100 py-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center">
                         <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
@@ -190,7 +190,7 @@ export default function WhyUsPage() {
                         <h2 className="text-3xl md:text-4xl font-bold mb-8">
                             Born from a Passion for Data
                         </h2>
-                        <div className="bg-white p-8 rounded-lg shadow-sm">
+                        <div className="bg-white p-8 rounded-lg shadow-xs">
                             <p className="text-lg text-gray-700 leading-relaxed mb-6">
                                 QualifAI is a product of <strong>WitData</strong>, a company
                                 dedicated to driving powerful digital transformation by optimizing
@@ -200,7 +200,7 @@ export default function WhyUsPage() {
                                 science of precision.
                             </p>
                             <div className="flex justify-center">
-                                <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                                <div className="w-24 h-24 bg-linear-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
                                     <svg
                                         className="w-12 h-12 text-white"
                                         fill="none"
@@ -237,7 +237,7 @@ export default function WhyUsPage() {
                             </p>
                             <div className="grid md:grid-cols-2 gap-6">
                                 <div className="flex items-start space-x-3">
-                                    <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                    <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center shrink-0 mt-1">
                                         <svg
                                             className="w-3 h-3 text-white"
                                             fill="none"
@@ -257,7 +257,7 @@ export default function WhyUsPage() {
                                     </p>
                                 </div>
                                 <div className="flex items-start space-x-3">
-                                    <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                    <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center shrink-0 mt-1">
                                         <svg
                                             className="w-3 h-3 text-white"
                                             fill="none"
@@ -277,7 +277,7 @@ export default function WhyUsPage() {
                                     </p>
                                 </div>
                                 <div className="flex items-start space-x-3">
-                                    <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                    <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center shrink-0 mt-1">
                                         <svg
                                             className="w-3 h-3 text-white"
                                             fill="none"
@@ -295,7 +295,7 @@ export default function WhyUsPage() {
                                     <p className="text-gray-700">Priority support and training</p>
                                 </div>
                                 <div className="flex items-start space-x-3">
-                                    <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                    <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center shrink-0 mt-1">
                                         <svg
                                             className="w-3 h-3 text-white"
                                             fill="none"
@@ -328,7 +328,7 @@ export default function WhyUsPage() {
                     </h2>
                     <div className="grid md:grid-cols-3 gap-8">
                         <div className="text-center">
-                            <div className="w-32 h-32 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <div className="w-32 h-32 bg-linear-to-br from-blue-400 to-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
                                 <svg
                                     className="w-16 h-16 text-white"
                                     fill="none"
@@ -350,7 +350,7 @@ export default function WhyUsPage() {
                             </p>
                         </div>
                         <div className="text-center">
-                            <div className="w-32 h-32 bg-gradient-to-br from-green-400 to-green-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <div className="w-32 h-32 bg-linear-to-br from-green-400 to-green-600 rounded-full mx-auto mb-4 flex items-center justify-center">
                                 <svg
                                     className="w-16 h-16 text-white"
                                     fill="none"
@@ -372,7 +372,7 @@ export default function WhyUsPage() {
                             </p>
                         </div>
                         <div className="text-center">
-                            <div className="w-32 h-32 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <div className="w-32 h-32 bg-linear-to-br from-purple-400 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
                                 <svg
                                     className="w-16 h-16 text-white"
                                     fill="none"

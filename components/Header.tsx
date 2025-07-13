@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
 
 const Header = () => {
     const [isSheetOpen, setIsSheetOpen] = useState(false);
@@ -23,7 +23,7 @@ const Header = () => {
 
     return (
         // Sticky header classes
-        <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-sm">
+        <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-xs">
             {/* Use justify-between to create two main groups: Logo and the rest */}
             <div className="container flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
                 {/* Logo - Left Group */}
@@ -62,6 +62,9 @@ const Header = () => {
                                 </Button>
                             </SheetTrigger>
                             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+                                <SheetTitle>
+                                    <span className="sr-only">Mobile Navigation</span>
+                                </SheetTitle>
                                 <nav className="flex flex-col space-y-4 mt-8">
                                     <Button variant="ghost" onClick={scrollToFeatures} className="justify-start text-lg">
                                         Features
