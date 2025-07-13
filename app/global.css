@@ -1,7 +1,7 @@
 /*
  * =================================================================================
  * global.css for QualifAI
- * Version: 1.1
+ * Version: 1.5
  * Framework: Tailwind CSS v4.0
  * Description: This file establishes the foundational theme and base styles
  * for the QualifAI application, based on the official Visual
@@ -113,6 +113,8 @@
 html {
   /* [Section 2.8] Sets base font size to 16px for accessibility */
   font-size: 16px;
+  /* UX Enhancement: Enables smooth scrolling for anchor links */
+  scroll-behavior: smooth;
 }
 
 body {
@@ -134,6 +136,18 @@ body {
 /* [Section 2.1] Sets the line-height for headings */
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
+}
+
+/*
+ * -----------------------------------------------------------------------------
+ * [Section 2.5] Container Defaults
+ * -----------------------------------------------------------------------------
+ * Sets the container to be centered with a maximum width, ensuring
+ * optimal readability on large screens. It also includes responsive
+ * horizontal padding.
+ */
+.container {
+  @apply w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8;
 }
 
 /*
@@ -163,4 +177,31 @@ h1, h2, h3, h4, h5, h6 {
   --color-border: 255 255% 255% / 0.08; /* semi-transparent white */
   --color-input: 255 255% 255% / 0.08;
   --color-ring: var(--color-accent-vibrant-green);
+}
+
+/*
+ * 5. GLOBAL ENHANCEMENTS & ACCESSIBILITY
+ * Best-practice additions for improved UX and a11y.
+ */
+
+/* Accessibility: Default focus ring for keyboard users */
+*:focus-visible {
+  outline: 2px solid hsl(var(--color-ring));
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Accessibility: Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
