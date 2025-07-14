@@ -5,12 +5,12 @@ import './global.css';
 import { cn } from '@/lib/utils';
 import Header_en from '@/components/Header_en';
 import Footer_en from '@/components/Footer_en';
-import { GoogleTagManager, GoogleAnalytics  } from '@next/third-parties/google';
+import ConsentScripts from '@/components/ConsentScripts';
 
 const inter = Inter({ 
   subsets: ['latin'],
   variable: '--font-sans',
-  display: 'swap', // Áp dụng font-display: swap
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -30,7 +30,6 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <GoogleTagManager gtmId="GTM-TKM34NF5" />
       <body 
         className={cn(
           'min-h-screen bg-neutral-light font-sans text-neutral-charcoal antialiased',
@@ -40,8 +39,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Header_en />
         {children}
         <Footer_en />
+        <ConsentScripts />
       </body>
-      <GoogleAnalytics gaId="G-B23C6G8HSD" />
     </html>
   );
 }

@@ -204,3 +204,37 @@ html.dark {
     scroll-behavior: auto !important;
   }
 }
+
+/* Cookie Consent Customization */
+#cc-main {
+  --cc-font-family: 'Inter', sans-serif;
+  --cc-modal-border-radius: 0.75rem;
+  --cc-btn-border-radius: 0.5rem;
+  --cc-modal-transition-duration: 0.2s;
+  --cc-modal-margin: 1.25rem;
+  --cc-z-index: 2147483647;
+  --cc-bg: #fff;
+  --cc-text: #222;
+  --cc-btn-primary-bg: #0A2540;
+  --cc-btn-primary-border-color: #0A2540;
+  --cc-btn-primary-hover-bg: #145399;
+  --cc-btn-primary-hover-border-color: #145399;
+  --cc-btn-secondary-bg: #F6F9FC;
+  --cc-btn-secondary-border-color: #A0AEC0;
+  --cc-btn-secondary-hover-bg: #E2E8F0;
+  --cc-btn-secondary-hover-border-color: #A0AEC0;
+  --cc-btn-text: #fff;
+  --cc-btn-secondary-text: #0A2540;
+  --cc-toggle-on-bg: #0A2540;
+  --cc-toggle-off-bg: #A0AEC0;
+  --cc-toggle-knob-bg: #fff;
+  --cc-section-border-radius: 0.5rem;
+  --cc-section-bg: #F6F9FC;
+  --cc-section-text: #222;
+  --cc-link-color: #1976D2;
+  --cc-link-hover-color: #145399;
+}
+
+#cc-main .cm, #cc-main .pm {
+  box-shadow: 0 4px 24px 0 rgba(16, 24, 40, 0.18);
+}
