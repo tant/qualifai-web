@@ -13,7 +13,7 @@ const Header_en = () => {
     return (
         <header className="sticky top-0 z-50 w-full border-b border-[#F6F9FC] bg-white/80 backdrop-blur-xs shadow-[0_1px_2px_0_rgba(16,24,40,0.05)]">
             <div className="container flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
-                <Link href="/" className="flex items-center space-x-2" legacyBehavior>
+                <Link href="/" className="flex items-center space-x-2">
                     <Image src="/logo.png" alt="QualifAI Logo" width={120} height={32} />
                 </Link>
                 <div className="flex items-center gap-x-6">

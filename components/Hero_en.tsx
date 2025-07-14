@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import { Button } from './ui/button'; // Assuming button is in components/ui
 
@@ -17,10 +16,10 @@ export default function Hero_en() {
                         matters: building great teams.
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-                        <Link href="/early-access" passHref legacyBehavior>
+                        <Link href="/early-access" >
                           <Button size="lg" asChild>Analyze Resumes for Free</Button>
                         </Link>
-                        <Link href="/early-access" passHref legacyBehavior>
+                        <Link href="/early-access">
                           <Button size="lg" variant="secondary" asChild>Learn More</Button>
                         </Link>
                     </div>
