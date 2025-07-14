@@ -1,5 +1,6 @@
-import type { Metadata } from 'next';
+/** biome-ignore-all assist/source/organizeImports: */
 import { Inter } from 'next/font/google';
+import type { Metadata } from 'next';
 import './global.css';
 import { cn } from '@/lib/utils';
 import Header_en from '@/components/Header_en';
@@ -9,6 +10,7 @@ import { GoogleTagManager, GoogleAnalytics  } from '@next/third-parties/google';
 const inter = Inter({ 
   subsets: ['latin'],
   variable: '--font-sans',
+  display: 'swap', // Áp dụng font-display: swap
 });
 
 export const metadata: Metadata = {
