@@ -1,11 +1,12 @@
-import { NextRequest, NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+import { NextResponse } from 'next/server';
 
 // Type definitions for Brevo API response and error
 interface BrevoError {
   message?: string;
   error?: string;
   errors?: Array<{ message?: string }>;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 // Simple in-memory rate limiter (per process, resets on server restart)

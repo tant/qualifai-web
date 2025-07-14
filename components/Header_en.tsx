@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
+
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 
 const Header_en = () => {
     const [isSheetOpen, setIsSheetOpen] = useState(false);
@@ -12,7 +13,7 @@ const Header_en = () => {
     return (
         <header className="sticky top-0 z-50 w-full border-b border-[#F6F9FC] bg-white/80 backdrop-blur-xs shadow-[0_1px_2px_0_rgba(16,24,40,0.05)]">
             <div className="container flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
-                <Link href="/" className="flex items-center space-x-2">
+                <Link href="/" className="flex items-center space-x-2" legacyBehavior>
                     <Image src="/logo.png" alt="QualifAI Logo" width={120} height={32} />
                 </Link>
                 <div className="flex items-center gap-x-6">
@@ -36,7 +37,8 @@ const Header_en = () => {
                         <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
                             <SheetTrigger asChild>
                                 <Button variant="tertiary" size="icon" aria-label="Open menu" className="rounded-[4px]">
-                                    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" focusable="false" role="img">
+                                        <title>Open menu</title>
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                                     </svg>
                                 </Button>
