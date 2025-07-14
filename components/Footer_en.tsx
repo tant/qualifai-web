@@ -21,18 +21,18 @@ const Footer_en = () => {
                         <h3 className="font-semibold uppercase tracking-wider mb-4 text-base">Product</h3>
                         <ul className="space-y-2">
                             <li>
-                                <Link href="/#features" className="text-[#B0B8C1] hover:text-[#00C853] transition-all duration-200 ease-in-out text-base">
-                                    Features
-                                </Link>
-                            </li>
-                            <li>
                                 <Link href="/why-us" className="text-[#B0B8C1] hover:text-[#00C853] transition-all duration-200 ease-in-out text-base">
                                     Why Us
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/pricing" className="text-[#B0B8C1] hover:text-[#00C853] transition-all duration-200 ease-in-out text-base">
-                                    Pricing
+                                <Link href="/early-access" className="text-[#B0B8C1] hover:text-[#00C853] transition-all duration-200 ease-in-out text-base">
+                                    Early Access
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/faq" className="text-[#B0B8C1] hover:text-[#00C853] transition-all duration-200 ease-in-out text-base">
+                                    FAQ
                                 </Link>
                             </li>
                         </ul>
@@ -40,21 +40,16 @@ const Footer_en = () => {
 
                     {/* Company */}
                     <div>
-                        <h3 className="font-semibold uppercase tracking-wider mb-4 text-base">Company</h3>
+                        <h3 className="font-semibold uppercase tracking-wider mb-4 text-base">Languages</h3>
                         <ul className="space-y-2">
                             <li>
-                                <Link href="/about" className="text-[#B0B8C1] hover:text-[#00C853] transition-all duration-200 ease-in-out text-base">
-                                    About Us
+                                <Link href="/en" className="text-[#B0B8C1] hover:text-[#00C853] transition-all duration-200 ease-in-out text-base">
+                                    English
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/blog" className="text-[#B0B8C1] hover:text-[#00C853] transition-all duration-200 ease-in-out text-base">
-                                    Blog
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/contact" className="text-[#B0B8C1] hover:text-[#00C853] transition-all duration-200 ease-in-out text-base">
-                                    Contact
+                                <Link href="/vi" className="text-[#B0B8C1] hover:text-[#00C853] transition-all duration-200 ease-in-out text-base">
+                                    Vietnamese
                                 </Link>
                             </li>
                         </ul>
