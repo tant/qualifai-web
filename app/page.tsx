@@ -1,5 +1,3 @@
-'use client';
-
 import Hero_en from '@/components/Hero_en';
 import ProblemSection_en from '@/components/ProblemSection_en';
 import FeaturesSection_en from '@/components/FeaturesSection_en';

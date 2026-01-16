@@ -1,4 +1,3 @@
-import React from "react";
 import { Shield, User, Globe } from "lucide-react";
 
 export default function WhyUsDifferenceSection() {

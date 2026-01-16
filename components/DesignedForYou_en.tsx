@@ -1,4 +1,3 @@
-import React from 'react';
 import { User, Building2, Users } from 'lucide-react';
 
 const DesignedForYou_en = () => {

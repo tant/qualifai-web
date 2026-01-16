@@ -12,10 +12,26 @@ interface BrevoError {
 // Simple in-memory rate limiter (per process, resets on server restart)
 const RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minute
 const RATE_LIMIT_MAX = 5; // max 5 requests per window per IP
+const MAX_MAP_SIZE = 10000; // Prevent unbounded memory growth
 const rateLimitMap = new Map<string, { count: number; lastRequest: number }>();
+
+function cleanupExpiredEntries(): void {
+  const now = Date.now();
+  for (const [ip, entry] of rateLimitMap) {
+    if (now - entry.lastRequest > RATE_LIMIT_WINDOW_MS) {
+      rateLimitMap.delete(ip);
+    }
+  }
+}
 
 function isRateLimited(ip: string): boolean {
   const now = Date.now();
+
+  // Cleanup if map grows too large
+  if (rateLimitMap.size > MAX_MAP_SIZE) {
+    cleanupExpiredEntries();
+  }
+
   const entry = rateLimitMap.get(ip);
   if (!entry || now - entry.lastRequest > RATE_LIMIT_WINDOW_MS) {
     rateLimitMap.set(ip, { count: 1, lastRequest: now });

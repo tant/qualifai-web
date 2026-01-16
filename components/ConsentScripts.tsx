@@ -81,10 +81,13 @@ export default function ConsentScripts() {
     });
   }, []);
 
+  const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
+  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+
   return (
     <>
-      {analyticsAllowed && <GoogleTagManager gtmId="GTM-TKM34NF5" />}
-      {analyticsAllowed && <GoogleAnalytics gaId="G-B23C6G8HSD" />}
+      {analyticsAllowed && gtmId && <GoogleTagManager gtmId={gtmId} />}
+      {analyticsAllowed && gaId && <GoogleAnalytics gaId={gaId} />}
     </>
   );
 }

@@ -1,15 +1,106 @@
 'use client'
 import { useState } from "react";
-import { Globe, Scale, Github } from "lucide-react";
+import { Globe, Scale, Github, Loader2 } from "lucide-react";
 import Link from "next/link";
+
+interface EarlyAccessFormProps {
+  email: string;
+  setEmail: (email: string) => void;
+  agree: boolean;
+  setAgree: (agree: boolean) => void;
+  submitted: boolean;
+  loading: boolean;
+  error: string;
+  setError: (error: string) => void;
+  onSubmit: (e: React.FormEvent) => void;
+  buttonText: string;
+  checkboxId: string;
+  variant?: 'default' | 'cta';
+}
+
+function EarlyAccessForm({
+  email,
+  setEmail,
+  agree,
+  setAgree,
+  submitted,
+  loading,
+  error,
+  setError,
+  onSubmit,
+  buttonText,
+  checkboxId,
+  variant = 'default',
+}: EarlyAccessFormProps) {
+  const linkClass = variant === 'cta'
+    ? "underline text-[hsl(var(--color-background))]"
+    : "underline text-[hsl(var(--color-primary))]";
+
+  const errorClass = variant === 'cta'
+    ? "text-red-200 font-medium"
+    : "text-red-600 font-medium mb-2";
+
+  const successClass = variant === 'cta'
+    ? "text-green-100 font-medium"
+    : "text-green-600 font-medium mb-2";
+
+  return (
+    <>
+      <form onSubmit={onSubmit} className="flex flex-col gap-3 w-full max-w-md mx-auto mb-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full">
+          <input
+            type="email"
+            required
+            placeholder="Enter your email address"
+            className="flex-1 px-4 py-3 rounded-md border border-[hsl(var(--color-primary))] focus:outline-none focus:ring-2 focus:ring-[hsl(var(--color-primary))] text-base"
+            value={email}
+            onChange={e => {
+              setEmail(e.target.value);
+              if (error) setError("");
+            }}
+            disabled={submitted || loading}
+            aria-label="Email address"
+          />
+          <button
+            type="submit"
+            className="bg-[hsl(var(--color-primary))] text-white px-6 py-3 rounded-md font-semibold transition-colors hover:opacity-90 disabled:opacity-60 flex items-center gap-2"
+            disabled={submitted || loading}
+          >
+            {loading && <Loader2 className="w-4 h-4 animate-spin" />}
+            {submitted ? "Thank You!" : buttonText}
+          </button>
+        </div>
+        <div className="flex items-start gap-2 text-left">
+          <input
+            type="checkbox"
+            id={checkboxId}
+            checked={agree}
+            onChange={e => setAgree(e.target.checked)}
+            disabled={submitted || loading}
+            required
+            className="mt-1"
+          />
+          <label htmlFor={checkboxId} className="text-sm select-none">
+            I agree to receive updates about Qualifai and confirm that I have read and understood{' '}
+            <Link href="/privacy-policy" className={linkClass} target="_blank" rel="noopener noreferrer">
+              Privacy Policy
+            </Link>.
+          </label>
+        </div>
+      </form>
+      {error && <div className={errorClass}>{error}</div>}
+      {submitted && <div className={successClass}>Thank you for joining! We&apos;ll be in touch soon.</div>}
+    </>
+  );
+}
 
 export default function EarlyAccessPage() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [agree, setAgree] = useState(false);
 
-  // Simple email validation regex
   const validateEmail = (email: string) =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
@@ -24,6 +115,7 @@ export default function EarlyAccessPage() {
       return;
     }
     setError("");
+    setLoading(true);
     try {
       const res = await fetch("/api/subscribe", {
         method: "POST",
@@ -40,7 +132,21 @@ export default function EarlyAccessPage() {
       setSubmitted(true);
     } catch {
       setError("Network error. Please try again later.");
+    } finally {
+      setLoading(false);
     }
+  };
+
+  const formProps = {
+    email,
+    setEmail,
+    agree,
+    setAgree,
+    submitted,
+    loading,
+    error,
+    setError,
+    onSubmit: handleSubmit,
   };
 
   return (
@@ -56,53 +162,12 @@ export default function EarlyAccessPage() {
         <div className="text-sm text-[hsl(var(--color-muted-foreground))] mb-2">
           Join 200+ recruiters ready to build world-class teams.
         </div>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-3 w-full max-w-md mx-auto mb-4">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full">
-            <input
-              type="email"
-              required
-              placeholder="Enter your email address"
-              className="flex-1 px-4 py-3 rounded-md border border-[hsl(var(--color-primary))] focus:outline-none focus:ring-2 focus:ring-[hsl(var(--color-primary))] text-base"
-              value={email}
-              onChange={e => {
-                setEmail(e.target.value);
-                if (error) setError("");
-              }}
-              disabled={submitted}
-              aria-label="Email address"
-            />
-            <button
-              type="submit"
-              className="bg-[hsl(var(--color-primary))] text-white px-6 py-3 rounded-md font-semibold transition-colors hover:opacity-90 disabled:opacity-60"
-              disabled={submitted}
-            >
-              {submitted ? "Thank You!" : "Get Early Access"}
-            </button>
-          </div>
-          <div className="flex items-start gap-2 text-left">
-            <input
-              type="checkbox"
-              id="agree"
-              checked={agree}
-              onChange={e => setAgree(e.target.checked)}
-              disabled={submitted}
-              required
-              className="mt-1"
-            />
-            <label htmlFor="agree" className="text-sm select-none">
-              I agree to receive updates about Qualifai and confirm that I have read and understood{' '}
-              <Link href="/privacy-policy" className="underline text-[hsl(var(--color-primary))]" target="_blank" rel="noopener noreferrer">
-                Privacy Policy
-              </Link>.
-            </label>
-          </div>
-        </form>
-        {error && (
-          <div className="text-red-600 font-medium mb-2">{error}</div>
-        )}
-        {submitted && (
-          <div className="text-green-600 font-medium mb-2">Thank you for joining! We&apos;ll be in touch soon.</div>
-        )}
+        <EarlyAccessForm
+          {...formProps}
+          buttonText="Get Early Access"
+          checkboxId="agree"
+          variant="default"
+        />
       </section>
 
       {/* Divider */}
@@ -156,59 +221,18 @@ export default function EarlyAccessPage() {
       </section>
 
       {/* Divider */}
-      <div className="h-2 w-full bg-gradient-to-r from-[hsl(var(--color-accent)/0.1)] to-[hsl(var(--color-background)/0.1]" />
+      <div className="h-2 w-full bg-gradient-to-r from-[hsl(var(--color-accent)/0.1)] to-[hsl(var(--color-background)/0.1)]" />
 
       {/* Final CTA Section */}
       <section className="py-12 px-4 bg-[hsl(var(--color-accent))] text-[hsl(var(--color-accent-foreground))] text-center">
         <h2 className="text-2xl md:text-3xl font-bold mb-2">The Best Talent Won&apos;t Wait. Neither Should You.</h2>
         <p className="mb-6">Stop drowning in resumes. Start building the future.</p>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-3 w-full max-w-md mx-auto mb-2">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full">
-            <input
-              type="email"
-              required
-              placeholder="Enter your email address"
-              className="flex-1 px-4 py-3 rounded-md border border-[hsl(var(--color-primary))] focus:outline-none focus:ring-2 focus:ring-[hsl(var(--color-primary))] text-base"
-              value={email}
-              onChange={e => {
-                setEmail(e.target.value);
-                if (error) setError("");
-              }}
-              disabled={submitted}
-              aria-label="Email address"
-            />
-            <button
-              type="submit"
-              className="bg-[hsl(var(--color-primary))] text-white px-6 py-3 rounded-md font-semibold transition-colors hover:opacity-90 disabled:opacity-60"
-              disabled={submitted}
-            >
-              {submitted ? "Thank You!" : "Get Started"}
-            </button>
-          </div>
-          <div className="flex items-start gap-2 text-left">
-            <input
-              type="checkbox"
-              id="agree-cta"
-              checked={agree}
-              onChange={e => setAgree(e.target.checked)}
-              disabled={submitted}
-              required
-              className="mt-1"
-            />
-            <label htmlFor="agree-cta" className="text-sm select-none">
-              I agree to receive updates about Qualifai and confirm that I have read and understood{' '}
-              <Link href="/privacy-policy" className="underline text-[hsl(var(--color-background))]" target="_blank" rel="noopener noreferrer">
-                Privacy Policy
-              </Link>.
-            </label>
-          </div>
-        </form>
-        {error && (
-          <div className="text-red-200 font-medium">{error}</div>
-        )}
-        {submitted && (
-          <div className="text-green-100 font-medium">Thank you for joining! We&apos;ll be in touch soon.</div>
-        )}
+        <EarlyAccessForm
+          {...formProps}
+          buttonText="Get Started"
+          checkboxId="agree-cta"
+          variant="cta"
+        />
       </section>
     </div>
   );

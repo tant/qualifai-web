@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function WhyUsFinalCtaSection() {
   return (
     <section className="py-20 bg-[hsl(var(--color-accent))] text-[hsl(var(--color-accent-foreground))]">

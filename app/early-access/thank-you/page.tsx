@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function ThankYouPage() {
   return (
     <main className="max-w-xl mx-auto py-16 px-4 text-center bg-[hsl(var(--color-card))] rounded-lg shadow-2">

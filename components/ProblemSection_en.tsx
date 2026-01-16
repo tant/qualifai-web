@@ -1,4 +1,3 @@
-import React from 'react';
 import { Clock, AlertCircle, ArchiveX } from 'lucide-react';
 
 export default function ProblemSection_en() {

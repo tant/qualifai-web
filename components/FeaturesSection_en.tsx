@@ -1,4 +1,3 @@
-import React from 'react';
 import { Zap, Scale, ShieldCheck } from 'lucide-react';
 
 const FeaturesSection_en = () => {

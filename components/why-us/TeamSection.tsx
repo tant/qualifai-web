@@ -1,4 +1,3 @@
-import React from "react";
 import { Users, Database, Sun } from "lucide-react";
 
 export default function WhyUsTeamSection() {

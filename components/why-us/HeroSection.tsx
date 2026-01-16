@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function WhyUsHeroSection() {
   return (
     <section className="bg-[hsl(var(--color-secondary))] py-20">

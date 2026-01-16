@@ -1,5 +1,3 @@
-import React from 'react';
-
 const HowItWorksSection_en = () => {
     return (
         <section className="py-20 bg-white">
